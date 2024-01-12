@@ -1,0 +1,22 @@
+services:
+  web:
+    build:
+      context: .
+    command: python /code/manage.py runserver 0.0.0.0
+    volumes:
+      - ./code: /code
+    ports:
+      - "8000:8000"
+    depends_on:
+      - db
+    environment:
+      - DB_HOST=db
+      - DB_USER=dbuser
+      - DB_NAME=dbname
+      - DB_PASSWORD=pass
+  db:
+    image: postgres
+    environment:
+      - POSTGRES_PASSWORD=pass
+      - POSTGRES_DB=dbname
+      - POSTGRES_USER=dbuser
