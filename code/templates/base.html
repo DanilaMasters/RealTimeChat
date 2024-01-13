@@ -9,10 +9,13 @@
 
     <style type="text/css">
         .main {
-            min-height: 100vh
-            height: 100%
+            min-height: 100vh;
+            height: 100%;
         }
     </style>
+      {% load bootstrap5 %}
+      {% bootstrap_css %}
+      {% bootstrap_javascript %}
 </head>
 <body>
     {% include 'snippets/header.html' %}
